@@ -14,3 +14,4 @@ class article(models.Model):
     create_time = models.CharField(max_length=50)
     author = models.CharField(max_length=40)
     content = models.TextField()
+    key_user = models.IntegerField()

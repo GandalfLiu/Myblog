@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -9,9 +10,8 @@
 
     <title>ShylockLiu的博客</title>
 
-    <script type="text/javascript" src=/static/style/jquery.js></script>
 
-    <link rel="stylesheet" href="/static/style/01.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/index.css" type="text/css">
 
 
 </head>
@@ -25,18 +25,17 @@
             <ul class="nav navbar-nav navbar-right" style="font-size:22px;height:50px;overflow: hidden">
 
                 <a class="navbar-brand" onmouseover="this.style.color='yellow'" style="color: red"
-                   onmouseout="this.style.color='red' " href="/">首页</a>
+                   onmouseout="this.style.color='red' " href="{% url 'app:index' %}">首页</a>
                 <a class="navbar-brand" onmouseover="this.style.color='yellow'" style="color: blueviolet"
-                   onmouseout="this.style.color='blueviolet' " href="/callme/">联系我</a>
+                   onmouseout="this.style.color='blueviolet' " href="{% url 'app:callme' %}">联系我</a>
                 <a class="navbar-brand" onmouseover="this.style.color='yellow'" style="color: red"
-                   onmouseout="this.style.color='red' " href="/post/create/">写文章</a>
+                   onmouseout="this.style.color='red' " href="{% url 'app:write' %}">写文章</a>
 
 
-                    <a class="navbar-brand" onmouseover="this.style.color='yellow'" style="color: greenyellow"
-                       onmouseout="this.style.color='greenyellow' " href="/user/register/">注册</a>
-                    <a class="navbar-brand" onmouseover="this.style.color='yellow'" style="color: red"
-                       onmouseout="this.style.color='red' " href="/user/login/">登录</a>
-
+                <a class="navbar-brand" onmouseover="this.style.color='yellow'" style="color: greenyellow"
+                   onmouseout="this.style.color='greenyellow' " href="{% url 'app:register' %}">注册</a>
+                <a class="navbar-brand" onmouseover="this.style.color='yellow'" style="color: red"
+                   onmouseout="this.style.color='red' " href="{% url 'app:login' %}">登录</a>
 
 
             </ul>
@@ -44,18 +43,22 @@
     </div>
 </nav>
 
+    {% block content %}
+        <div class="content">
 
-
-
-
-    <footer id="site-footer">
-        <div class="container">
-            <p style="text-align: center;font-size: 14px"><a href="http://www.miitbeian.gov.cn/">粤ICP备18011673号</a></p>
+        这是内容
         </div>
-    </footer>
+
+
+    {% endblock %}
+
+<footer id="site-footer">
+    <div class="container">
+        <p style="text-align: center;font-size: 14px"><a href="http://www.miitbeian.gov.cn/">粤ICP备18011673号</a></p>
+    </div>
+</footer>
 
 </body>
-<script src="/static/style/01.js"></script>
-<script src="/static/style/snow.js"></script>
-<script src="/static/style/02.js"></script>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script src="/static/js/index.js"></script>
 </html>
